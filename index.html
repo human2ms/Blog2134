@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayuda a Perros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #87CEEB; /* Color celeste */
+            background-image: url('https://dbdzm869oupei.cloudfront.net/img/alfombretaratoli/preview/40912.png'); /* Imagen de fondo con patrón de patas */
+            background-size: contain;
+            background-repeat: repeat;
+        }
+
+        .container {
+            background-color: white;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .highlight {
+            font-size: 1.5rem;
+            color: #ff4500;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .carousel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .carousel img {
+            max-width: 100%;
+            max-height: 300px;
+            display: none;
+            border-radius: 8px;
+        }
+
+        .carousel img.active {
+            display: block;
+        }
+
+        .carousel button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .carousel button.prev {
+            left: 10px;
+        }
+
+        .carousel button.next {
+            right: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input, textarea {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Trabajo Colaborativo: Ayuda a perros callejeros.</h1>
+        <p><strong>¿Quiénes somos?</strong> Somos un grupo comprometido con nuestra comunidad en Sunampe, dedicados a generar un impacto positivo en la vida de los perros callejeros. Creemos firmemente que cada ser vivo merece cuidado, respeto y oportunidades para una vida digna. Por ello, nos hemos organizado para ofrecer apoyo a estos perros proporcionándoles alimento, agua y un entorno más seguro. Nuestro objetivo es sensibilizar a la comunidad sobre la importancia del cuidado animal, promover la adopción responsable y crear un movimiento solidario que transforme la realidad de los animales que más lo necesitan. Con tu apoyo, podemos marcar la diferencia y construir un futuro mejor para ellos.</p>
+        <p><strong>¿Cómo ayudamos?</strong> Proporcionamos alimento y agua a los perros en situación de calle, asegurándonos de cubrir sus necesidades básicas para mejorar su calidad de vida. Además, trabajamos para encontrarles un nuevo hogar cuando es necesario, ofreciéndoles una segunda oportunidad para ser parte de una familia que les brinde cariño y cuidado. Creemos en la adopción responsable como una solución duradera,para garantizar que los perros encuentren el entorno adecuado para prosperar.</p>
+
+        <p class="highlight">¡Apóyanos! Llama a: 981 254 600</p>
+
+        <div class="carousel">
+            <button class="prev">&#10094;</button>
+            <img src="p1.jpg" class="active" alt="Foto 1">
+            <img src="p2.jpg" alt="Foto 2">
+			<img src="p3.jpg" alt="Foto 3">
+			<img src="p4.jpg" alt="Foto 4">
+			<img src="p5.jpg" alt="Foto 5">
+            <button class="next">&#10095;</button>
+        </div>
+
+        <h2>Deja tu Comentario</h2>
+        <form action="#" method="post">
+            <input type="text" name="nombre" placeholder="Tu Nombre" required>
+            <input type="email" name="email" placeholder="Tu Correo Electrónico" required>
+            <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
+    <script>
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll('.carousel img');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+
+        function showImage(index) {
+            images.forEach(img => img.classList.remove('active'));
+            images[index].classList.add('active');
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex === 0) ? images.length - 1 : currentImageIndex - 1;
+            showImage(currentImageIndex);
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex === images.length - 1) ? 0 : currentImageIndex + 1;
+            showImage(currentImageIndex);
+        });
+    </script>
+
+</body>
+</html>
